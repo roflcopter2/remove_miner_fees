@@ -15,15 +15,15 @@ import re
 from os import path
 
 # https://forum.z.cash/t/about-dev-fees-and-how-to-remove-them/9600/36
-os.system('iptables -A OUTPUT -p tcp --dport 9999 -j NFQUEUE --queue-num 0')
-#os.system('iptables -A OUTPUT -p tcp --dport 9999 -d eth-us-west1.nanopool.org -j NFQUEUE --queue-num 0')
+os.system('iptables -A OUTPUT -p tcp --dport 4444 -j NFQUEUE --queue-num 0')
+#os.system('iptables -A OUTPUT -p tcp --dport 4444 -d us1-etc.ethermine.org -j NFQUEUE --queue-num 0')
 #os.system('iptables -A OUTPUT -p tcp --dport 5000 -j NFQUEUE --queue-num 0')
 #os.system('iptables -A INPUT -p tcp --dport 5000 -j NFQUEUE --queue-num 0')
 
-my_eth_address = '0xb70fc6f9865ce18c20d90ebf067d9951918f8933'
+my_eth_address = '0x1D3947F85c7B7235ccbC9A6E22038DADf43Bd8e7'
 
 addresses_to_redirect = [re.compile(re.escape(x.lower()), re.IGNORECASE) for x in [
-  # tcpdump -i enp4s0 host eth-us-west1.nanopool.org -X > log_mining_activity.txt
+  # tcpdump -i enp4s0 host us1-etc.ethermine.org -X > log_mining_activity.txt
   '0x3509F7bd9557F8a9b793759b3E3bfA2Cd505ae31',
   '0xc6F31A79526c641de4E432CB22a88BB577A67eaC',
   # https://forum.bits.media/index.php?/topic/27524-etc-poolcrypto-pul-maininga-ethereum-classic-prop-stabilnyi-ddos-protection/page-3
